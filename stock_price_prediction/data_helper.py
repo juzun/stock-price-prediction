@@ -72,9 +72,7 @@ class DataHelper:
         # Set data frequency to business days and interpolate newly added nan values.
         stock_history = stock_history.asfreq("B").interpolate()
 
-        features_to_keep = [
-            "Adj Close", "Close", "High", "Low", "MA_10", "MA_50"
-        ]
+        features_to_keep = ["Adj Close", "Close", "High", "Low", "MA_10", "MA_50"]
         stock_history = stock_history[features_to_keep]
 
         new_start_date = DataHelper.detect_breakout_point(
