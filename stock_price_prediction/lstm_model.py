@@ -63,7 +63,7 @@ class LSTMModel:
         self.split_scale_sequence()
 
         self.model = self.create_model()
-        self.model.compile(optimizer="adam", loss="mse")
+        self.model.compile(optimizer="adam", loss="mse", metrics=["mae"])
         early_stopping = EarlyStopping(
             monitor="val_loss", patience=5, restore_best_weights=True
         )
